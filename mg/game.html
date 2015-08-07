@@ -1,0 +1,42 @@
+<html lang="en">
+	<!--<script src="node_modules/socket.io/node_modules/socket.io-client/socket.io/socket.io.js"></script>-->
+ 	<head>
+ 		<title>新我握力器音乐游戏</title>
+ 		<meta charset = "UTF-8">
+		<script src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="libraries/p5.js" type="text/javascript"></script>
+	 	<script src="libraries/p5.dom.js" type="text/javascript"></script>
+		<script src="libraries/p5.sound.js" type="text/javascript"></script>
+		<script src="ParticleSystem.js" type="text/javascript"></script>
+		<script src="sketch.js" type="text/javascript"></script>
+		<script src="Mover.js" type="text/javascript"></script>
+		<script src="Particle.js" type="text/javascript"></script>
+		<script src="Combo.js" type="text/javascript"></script>
+		<script src="ExCircle.js" type="text/javascript"></script>
+  
+		<script>
+				// open a connection to the serial server:
+				//var socket = io.connect('http://localhost:8080');
+		    var socket = io.connect('http://10.0.1.198:8080');
+				 // when you get a serialdata event, do this:
+				socket.on('serialEvent', function (data) {
+					// you're going to move the div in the HTML:
+					//var element = document.getElementById('textDisplay');
+					//element.style.position = "absolute";
+					gripInput();
+					console.log(data.name);
+				});
+				
+				socket.on('news', function (data) {
+		    	console.log(data); 
+		 	});
+		</script>
+
+		<h1> 新我最热的音乐游戏！！！</h1>
+		<img src="data/blackhole.png" alt="HTML5" style="width:200px;height:200px">
+	</head>
+
+	<body>
+	</body>
+</html>
